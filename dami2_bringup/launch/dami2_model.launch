@@ -1,0 +1,43 @@
+<launch>
+  <arg name="model" default="$(env MY_MODEL)" doc="model type [dami, dami2]"/>
+  <arg name="multi_robot_name" default=""/>
+
+
+  <include file="$(find dami2_bringup)/launch/dami2_remote.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+  </include>
+
+
+
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="use_gui" value="true"/>
+    <param name="rate" value="50"/>
+  </node>
+
+
+<!--  <include file="$(find openni_launch)/launch/openni.launch"/>-
+
+  <include file="$(find depthimage_to_laserscan)/launch/depth_to_laserscan.launch"/>
+-->
+
+<!--  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/ekf_localization.yaml" />
+  </node>-->
+
+
+
+<!--  <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen" />
+    <param name="m_bSingle_TF_option" type="bool" value="false" />-->
+
+
+
+
+
+<!--  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dami2_description)/rviz/$(arg model).rviz"/>-->
+
+
+
+<!--  <include file="$(find dami_gazebo)/launch/dami_gazebo.launch"/>-->
+
+</launch>

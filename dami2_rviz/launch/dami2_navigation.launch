@@ -1,0 +1,3 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dami2_rviz)/rviz/dami2_navigation.rviz"/>
+</launch>
